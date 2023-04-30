@@ -14,5 +14,5 @@ button = st.button("Submit")
   
 if button and query:
     with st.spinner("Searching for the answer..."):
-        answers = list_relevant_docs(query, engine)
-        st.success(f"Answer:{answers}")
+        for ans in list_relevant_docs(query, engine):
+            st.success(ans.page_content)
